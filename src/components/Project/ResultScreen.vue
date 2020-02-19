@@ -3,8 +3,8 @@
         <h2>result</h2>
         <p>FFFFF</p>
         <div>
-            <!-- <h3>Success: {{ stats.success }}</h3> -->
-            <!-- <h3>Error: {{ stats.error }}</h3> -->
+            <h3>Success: {{ stats.success }}</h3>
+            <h3>Error: {{ stats.error }}</h3>
             <p>AAAa</p>
         </div>
         

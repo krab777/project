@@ -4,6 +4,7 @@
             <h1>This is my project</h1>
             <h2>Question number: {{ question }}</h2>
             <router-view
+                :stats="stats"
                 @success="onQuestionSuccess"
                 @error="onQuestionError"              
                 :settings="questions[question]"
@@ -15,8 +16,8 @@
                 @nextQuestion="onNextQuestion"
             ></router-view>
 
-            <div>Errors: {{ stats.error }}</div>
-            <div>Success {{ stats.success }}</div>
+                <div>Errors: {{ stats.error }}</div>
+                <div>Success {{ stats.success }}</div>
         </div>        
     </div>
 </template>
@@ -103,7 +104,7 @@
                 
             },
             questMax() {
-                return this.questions.length()
+                return this.questions.length
             }
         },
         methods: {
@@ -138,7 +139,7 @@
             },
             onNextQuestion() {
                 this.question++
-                this.$router.push('/question')
+                this.onNext()
             }
         }
     }
