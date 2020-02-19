@@ -1,24 +1,39 @@
 <template>
     <div id="app">
-        <div class="main">
-            <h1>This is my project</h1>
-            <h2>Question number: {{ question }}</h2>
-            <router-view
-                :stats="stats"
-                @success="onQuestionSuccess"
-                @error="onQuestionError"              
-                :settings="questions[question]"
-                :type="message.type"
-                :text="message.text"
-                @start="onStart"
-                @repeat="onStart"
-                @next="onNext"
-                @nextQuestion="onNextQuestion"
-            ></router-view>
+        <b-navbar type="dark" variant="dark">
+                <b-navbar-nav>
+                    <b-nav-item href="/"><h3>This is my project</h3></b-nav-item>        
+                </b-navbar-nav>
+            </b-navbar>
+        <div class="container">
+            
+            <div class="main">            
+                <h2>Question number: {{ question }} of {{ questMax }} </h2>
+                <router-view
+                    :stats="stats"
+                    @success="onQuestionSuccess"
+                    @error="onQuestionError"              
+                    :settings="questions[question]"
+                    :type="message.type"
+                    :text="message.text"
+                    @start="onStart"
+                    @prevQwestion="onPrevQwestion"
+                    @repeat="onRepeat"
+                    @next="onNext"
+                    @nextQuestion="onNextQuestion"
+                ></router-view>
 
-                <div>Errors: {{ stats.error }}</div>
-                <div>Success {{ stats.success }}</div>
-        </div>        
+                    <div>Errors: {{ stats.error }}</div>
+                    <div>Success {{ stats.success }}</div>
+            </div> 
+        </div>
+        <footer class="footer fixed-bottom">
+            <b-navbar type="dark" variant="dark">
+                <b-navbar-nav>
+                    <b-nav-item href="/">This is footer for my project</b-nav-item>        
+                </b-navbar-nav>
+            </b-navbar>
+        </footer>       
     </div>
 </template>
 
@@ -45,52 +60,216 @@
                 question: 0,
                 questions: [
                     {   
-                        question: "A text question",
+                        question: "Человеческое сердце качает кровь как насос?",
                         answers: [
                             {
-                                variant: "A",
+                                variant: "Да, Человеческое сердце работает как кровяной насос",
                                 correct: true
                             },
                             {
-                                variant: "B",
-                                correct: false
-                            },
-                            {
-                                variant: "C",
+                                variant: "Нет, сердце не работает как насос",
                                 correct: false
                             }
                         ]
                     },
                     {   
-                        question:'B text question',
+                        question:'Что обозначает формула H2O?',
                         answers: [
                             {
-                                variant: "A",
+                                variant: "Гелий",
                                 correct: false
                             },
                             {
-                                variant: "B",
+                                variant: "Воду",
                                 correct: true
                             },
                             {
-                                variant: "C",
+                                variant: "Кислород",
+                                correct: false
+                            },
+                            {
+                                variant: "Аммиак",
                                 correct: false
                             }
                         ]
                     },
                     {   
-                        question:'C text question',
+                        question:'В какой стране проживает самое большое количество людей?',
                         answers: [
                             {
-                                variant: "A",
+                                variant: "Бразилия",
                                 correct: false
                             },
                             {
-                                variant: "B",
+                                variant: "США",
                                 correct: false
                             },
                             {
-                                variant: "C",
+                                variant: "Китай",
+                                correct: true
+                            },
+                            {
+                                variant: "Индия",
+                                correct: false
+                            }                        ]
+                    },
+                    {   
+                        question:'Самый большой штат США - это...?',
+                        answers: [
+                            {
+                                variant: "Техас",
+                                correct: false
+                            },
+                            {
+                                variant: "Калифорния",
+                                correct: false
+                            },
+                            {
+                                variant: "Аляска",
+                                correct: true
+                            }
+                        ]
+                    },
+                    {   
+                        question:'На каком континенте находится пустыня Сахара?',
+                        answers: [
+                            {
+                                variant: "Америка",
+                                correct: false
+                            },
+                            {
+                                variant: "Африка",
+                                correct: true
+                            },
+                            {
+                                variant: "Азия",
+                                correct: false
+                            },
+                            {
+                                variant: "Европа",
+                                correct: false
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Световые волны распространяются быстрее, чем звуковые?',
+                        answers: [
+                            {
+                                variant: "Нет, звуковые волны быстрее световых",
+                                correct: false
+                            },
+                            {
+                                variant: "Да, световые волные быстрее звуковых",
+                                correct: true
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Как называется самая длинная река на земле?',
+                        answers: [
+                            {
+                                variant: "Нил",
+                                correct: false
+                            },
+                            {
+                                variant: "Конго",
+                                correct: false
+                            },
+                            {
+                                variant: "Амазонка",
+                                correct: true
+                            },
+                            {
+                                variant: "Северский Донец",
+                                correct: false
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Как зову знаменитого ученого, который написал "Краткую историю времени"?',
+                        answers: [                   
+                            {
+                                variant: "Альберт Эйнштейн",
+                                correct: false
+                            },
+                            {
+                                variant: "Галилео Галилей",
+                                correct: false
+                            },
+                            {
+                                variant: "Стивен Хокинг",
+                                correct: true
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Кто разработал теорию относительности?',
+                        answers: [
+                            {
+                                variant: "Галилео Галилей",
+                                correct: false
+                            },
+                            {
+                                variant: "Никола Тесла",
+                                correct: false
+                            },
+                            {
+                                variant: "Альберт Эйнштейн",
+                                correct: true
+                            },
+                            {
+                                variant: "Стивен Хокинг",
+                                correct: false
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Статуя Свободы в Нью-Йорке была подарена...',
+                        answers: [
+                            {
+                                variant: "Францией",
+                                correct: true
+                            },
+                            {
+                                variant: "Великобританией",
+                                correct: false
+                            },
+                            {
+                                variant: "Бельгией",
+                                correct: false
+                            },
+                            {
+                                variant: "Канадой",
+                                correct: false
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Первая мировая война закончилась в...?',
+                        answers: [
+                            {
+                                variant: "1921",
+                                correct: false
+                            },
+                            {
+                                variant: "1918",
+                                correct: true
+                            },
+                            {
+                                variant: "1919",
+                                correct: false
+                            }
+                        ]
+                    },
+                    {   
+                        question:'Можно ли слышать звуки в открытом космосе?',
+                        answers: [
+                            {
+                                variant: "Да, можно услышать звук в космосе",
+                                correct: false
+                            },
+                            {
+                                variant: "Нет, звук в космосе услышать невозможно",
                                 correct: true
                             }
                         ]
@@ -108,6 +287,10 @@
             }
         },
         methods: {
+            reset() {
+                this.stats.success = 0
+                this.stats.error = 0
+            },
             onQuestionSuccess() {
                 this.message.text = 'Good job!'
                 this.message.type = 'success'
@@ -120,21 +303,27 @@
                 this.$router.push('/message')
                 this.stats.error++                
             },
-            onStart() {                
-                this.stats.success = 0
-                this.stats.error = 0
+            onStart() {    
+                this.reset()        
+                this.$router.push('/question')
+            },
+            onRepeat() {
+                this.reset()
+                this.question = 0
+                this.$router.push('/')
+            },
+            onPrevQwestion() {
                 this.$router.push('/question')
             },
             onNext() {
                 /* eslint-disable no-console */
                     console.log('WOW');
                     /* eslint-enable no-console */
-                if(this.questDone < this.questMax) {
+                if(this.question < this.questMax) {
                     this.$router.push('/question')
                 } 
                 else {
-                    this.$router.push('/result')
-                    
+                    this.$router.push('/result')                    
                 }
             },
             onNextQuestion() {
@@ -145,15 +334,27 @@
     }
 </script>
 
-<style >
+<style scoped>
 /*src="./assets/css/tailwind.css"*/
     .main {
         margin: 0 30px;
     }
-    #app {
-        max-width: 1200px;
-        margin: 30px auto
+    h2 {
+        margin: 30px 0
     }
+    html, body {
+      height: 100%;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    /*#app {*/
+      /*  max-width: 1200px;
+        margin: 30px auto*/
+    /*}*/
     /*.alert {
         text-align: center;
     }

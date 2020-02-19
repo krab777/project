@@ -3,14 +3,9 @@
 		<h2>{{ settings.question }}</h2>
 
 		<div class="buttons">
-			<!-- <b-button 
-				variant="primary" 
-				:key="number" 
-				v-for="number in answers"
-				@click="onAnswer()"
-			>{{ number }}</b-button> -->
 			<b-button 
-				variant="primary" 
+				variant="outline-primary" 
+				size="lg" block
 				:key="index" 
 				v-for="(answer, index) in this.settings.answers"
 				@click="onAnswer(index)"
@@ -23,8 +18,6 @@
 </template>
 
 <script>
-	// import {eventBus} from './main'
-
 	export default {
 		props: ['settings'], 
 		data(){
@@ -35,19 +28,11 @@
 			
 		},
 		methods: {
-			toResult() {
-				// if (this.settings[index] < 3) {
-				// 	this.$router.push('/result')
-				// }
-			},
 			onAnswer(index){
 				if (this.settings.answers[index].correct) {
 					
 					this.$emit('success')
 				} 
-				// else if(this.question < 3) {
-				// 	this.$router.push('/result')
-				// }
 				else {
 					this.$emit('error', `${this.settings.question} is NOT '${this.settings.answers[index].variant}'!`)
 				}
@@ -61,6 +46,6 @@
 		text-align: center;
 	}
 	h2, .btn {
-		margin: 30px 50px;
+		margin: 50px 0;
 	}
 </style>

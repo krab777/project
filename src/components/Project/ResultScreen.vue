@@ -1,15 +1,12 @@
 <template>
     <div id="result" class="alert alert-secondary">
-        <h2>result</h2>
-        <p>FFFFF</p>
+        <h2>Retults</h2>
         <div>
-            <h3>Success: {{ stats.success }}</h3>
-            <h3>Error: {{ stats.error }}</h3>
-            <p>AAAa</p>
+            <h3>Your correct answers is: {{ stats.success }}</h3>
+            <br>
+            <h3>Your wrong answers is: {{ stats.error }}</h3>
         </div>
-        
-        <!-- <router-link class="btn btn-success" to="/question" @click="$emit('repeat')">Repeat</router-link> -->
-        <button class="btn btn-success" to="/question" @click="$emit('repeat')">Repeat</button>
+        <button class="btn btn-success" @click="$emit('start')">Repeat</button>
     </div>
 </template>
 
