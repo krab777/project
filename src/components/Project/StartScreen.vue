@@ -3,7 +3,6 @@
 		<h2>start</h2>
 		<!-- <router-link class="btn btn-success" @click="$emit('onStart')" to='/question'>Start</router-link> -->
 		<b-button class="btn btn-success" @click="$emit('start')">Start</b-button>
-
     </div>
 </template>
 

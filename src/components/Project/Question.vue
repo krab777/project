@@ -42,9 +42,7 @@
 			},
 			onAnswer(index){
 				if (this.settings.answers[index].correct) {
-					/* eslint-disable no-console */
-					console.log(this.settings.answers.correct);
-					/* eslint-enable no-console */
+					
 					this.$emit('success')
 				} 
 				// else if(this.question < 3) {

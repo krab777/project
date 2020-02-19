@@ -11,11 +11,12 @@
                 :text="message.text"
                 @start="onStart"
                 @repeat="onStart"
+                @next="onNext"
                 @nextQuestion="onNextQuestion"
             ></router-view>
 
-            <div> {{ stats.error }}</div>
-            <div> {{ stats.success }}</div>
+            <div>Errors: {{ stats.error }}</div>
+            <div>Success {{ stats.success }}</div>
         </div>        
     </div>
 </template>
@@ -39,7 +40,7 @@
                     success: 0,
                     error: 0
                 },
-                questMax: 3,
+                // questMax: 3,
                 question: 0,
                 questions: [
                     {   
@@ -99,15 +100,13 @@
         computed: {
             questDone() {
                 return this.stats.success + this.stats.error
+                
+            },
+            questMax() {
+                return this.questions.length()
             }
         },
         methods: {
-
-            errors() {
-                /* eslint-disable no-console */
-                return this.stats.error;
-                /* eslint-enable no-console */
-            },
             onQuestionSuccess() {
                 this.message.text = 'Good job!'
                 this.message.type = 'success'
@@ -124,25 +123,17 @@
                 this.stats.success = 0
                 this.stats.error = 0
                 this.$router.push('/question')
-                /* eslint-disable no-console */
-                console.log(this.error);
-                /* eslint-enable no-console */
             },
             onNext() {
                 /* eslint-disable no-console */
-                console.log(this.error);
-                /* eslint-enable no-console */
-                if(this.questDone < this.questMax) {
-                    /* eslint-disable no-console */
                     console.log('WOW');
                     /* eslint-enable no-console */
+                if(this.questDone < this.questMax) {
                     this.$router.push('/question')
                 } 
                 else {
-                    /* eslint-disable no-console */
-                    console.log('WOW');
-                    /* eslint-enable no-console */
                     this.$router.push('/result')
+                    
                 }
             },
             onNextQuestion() {

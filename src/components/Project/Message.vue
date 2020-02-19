@@ -5,6 +5,7 @@
 		<!-- <b-button class="btn btn-success" @click="$emit('onNext')">Next</b-button> -->
 		<button class="btn btn-success" @click="$emit('repeat')">Repeat</button>
 		<button class="btn btn-success" @click="$emit('nextQuestion')">Next level</button>
+		<router-link exact active-class="font-bold" class="btn btn-success" to="/result">result</router-link>
 
 
     </div>
