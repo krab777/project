@@ -11,16 +11,14 @@
 			>{{ number }}</b-button> -->
 			<b-button 
 				variant="primary" 
-				:key="answer" 
-				v-for="answer in this.settings.answers"
-				@click="onAnswer()"
-			>{{ answer }}</b-button>
+				:key="index" 
+				v-for="(answer, index) in this.settings.answers"
+				@click="onAnswer(index)"
+			>{{ answer.variant }}</b-button>
 		</div>
-
 
 		<router-link exact active-class="font-bold" class="btn btn-success" to="/result">result</router-link>
 
-		<div>{{ check }}</div>
     </div>
 </template>
 
@@ -28,7 +26,7 @@
 	// import {eventBus} from './main'
 
 	export default {
-		props: ['settings'],
+		props: ['settings'], 
 		data(){
 			return {
 			}
@@ -37,20 +35,23 @@
 			
 		},
 		methods: {
-			chech() {
-					/* eslint-disable no-console */
-					console.log(this.settings);
-					/* eslint-enable no-console */				
+			toResult() {
+				// if (this.settings[index] < 3) {
+				// 	this.$router.push('/result')
+				// }
 			},
-			onAnswer(){
-				if (this.settings.answers.correct) {
+			onAnswer(index){
+				if (this.settings.answers[index].correct) {
 					/* eslint-disable no-console */
 					console.log(this.settings.answers.correct);
 					/* eslint-enable no-console */
 					this.$emit('success')
-				}
+				} 
+				// else if(this.question < 3) {
+				// 	this.$router.push('/result')
+				// }
 				else {
-					this.$emit('error', `${this.settings.question} is '${this.settings.answers.variant}'!`)
+					this.$emit('error', `${this.settings.question} is NOT '${this.settings.answers[index].variant}'!`)
 				}
 			},
 		}

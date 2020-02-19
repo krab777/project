@@ -15,9 +15,12 @@
             ></router-view>
 
             <div> {{ stats.error }}</div>
+            <div> {{ stats.success }}</div>
         </div>        
     </div>
 </template>
+
+
 
 <script>
     import Notifier from './mixins/notifier'

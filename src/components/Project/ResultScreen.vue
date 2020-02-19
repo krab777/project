@@ -1,6 +1,7 @@
 <template>
     <div id="result" class="alert alert-secondary">
         <h2>result</h2>
+        <p>FFFFF</p>
         <h3>Success: {{ stats.success }}</h3>
         <h3>Error: {{ stats.error }}</h3>
         <!-- <router-link class="btn btn-success" to="/question" @click="$emit('repeat')">Repeat</router-link> -->
