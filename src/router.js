@@ -3,6 +3,8 @@ import StartScreen from "./components/Project/StartScreen"
 import ResultScreen from "./components/Project/ResultScreen"
 import Message from "./components/Project/Message"
 import Question from "./components/Project/Question"
+import Home from "./components/Home"
+
 
 
 export default new VueRouter ({
@@ -22,6 +24,10 @@ export default new VueRouter ({
         {
             path: '/message', 
             component: Message
+        },
+        {
+            path: '/home', 
+            component: Home
         }
 		// {
 		// 	path: '*',

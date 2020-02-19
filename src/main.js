@@ -11,6 +11,9 @@ import StartScreen from "./components/Project/StartScreen"
 import Message from "./components/Project/Message"
 import Question from "./components/Project/Question"
 import { BootstrapVue } from 'bootstrap-vue'
+import Vuelidate from 'vuelidate'
+
+Vue.use(Vuelidate)
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)

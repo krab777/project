@@ -1,6 +1,9 @@
 <template>
     <div id="home" class="bg-green-400">
         <h1>{{ title }}</h1>
+        <p>aaa</p>
+
+
     </div>
 </template>
 
