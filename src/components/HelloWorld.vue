@@ -20,6 +20,10 @@
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
     <h3>Ecosystem</h3>
+    <button @click="callWarning">Warning</button>
+    <button @click="callError">Error</button>
+    <button @click="callSuccess">Success</button>
+    <button @click="callDefault">Default</button>
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -31,10 +35,38 @@
 </template>
 
 <script>
-export default {
+  import {eventBus} from "../main";
+
+  export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    callWarning() {
+      eventBus.$emit('show-notify', {
+        message: 'Warning! Do not let your Rainbow Pony eat too muh Skittles!',
+        status: 'warning'
+      })
+    },
+    callError() {
+      eventBus.$emit('show-notify', {
+        message: 'Error! The fail of fails!',
+        status: 'error'
+      })
+    },
+    callSuccess() {
+      eventBus.$emit('show-notify', {
+        message: 'Success',
+        status: 'success'
+      })
+    },
+    callDefault() {
+      eventBus.$emit('show-notify', {
+        message: 'Default',
+        status: 'default'
+      })
+    }
   }
 }
 </script>
