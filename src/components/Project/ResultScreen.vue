@@ -17,13 +17,14 @@
                 msg: 'Result',
             }
         },   
-        // props: ['stats']
+        // props: ['stats'],
         props: {
             stats: {
                 type: Object,
                 required: true
             }
         },
+        
         directives: {
             fontSize: {
                 bind(el) {

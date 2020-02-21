@@ -32,7 +32,8 @@
         <footer class="footer fixed-bottom">
             <b-navbar type="dark" variant="dark">
                 <b-navbar-nav>
-                    <b-nav-item href="/">This is footer for my project</b-nav-item>        
+                    <b-nav-item href="/">This is footer for my project</b-nav-item>  
+                    <router-link exact active-class="font-bold" to="/users">Users</router-link>      
                 </b-navbar-nav>
             </b-navbar>
         </footer>       
@@ -57,7 +58,7 @@
                     error: 0
                 },
                 // questMax: 3,
-                question: 0,
+                // question: 0,
                 questions: [
                     {   
                         question: "Человеческое сердце качает кровь как насос?",

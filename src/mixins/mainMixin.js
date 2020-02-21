@@ -6,6 +6,9 @@ export default {
         },
         questMax() {
             return this.questions.length
+        },
+        question() {
+            return this.$store.state.question
         }
     },
     methods: {
@@ -46,7 +49,9 @@ export default {
             }
         },
         onNextQuestion() {
-            this.question++
+            this.$store.state.question++
+            // return this.$store.getters.computedQuestion
+
             this.onNext()
         }
     }
