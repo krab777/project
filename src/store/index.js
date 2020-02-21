@@ -234,10 +234,18 @@ export default new Vuex.Store({
                   }
               ]
 	},
-	getters: {
-        computedQuestion(state){
-            return state.question += 1
-        }
-		
-	}
+	mutations: {
+        question(state){
+            state.question += 1
+        },		
+	},
+    getters: {
+        // reset() {
+        //     return state.stats.success = 0
+        //     return state.stats.error = 0
+        // },
+        // doneTodos: state => {
+        //     return state.todos.filter(todo => todo.done);
+        // }
+    }
 })

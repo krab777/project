@@ -286,6 +286,16 @@
     .main {
         margin: 30px 30px;
     }
+    html, body {
+      height: 100%;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
     h2 {
         margin: 30px 0
     }

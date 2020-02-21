@@ -1,7 +1,8 @@
 export default {
     computed: {
         questDone() {
-            return this.stats.success + this.stats.error
+            // return this.stats.success + this.stats.error
+            return this.$store.commit('success') + this.$store.commit('error');
             
         },
         questMax() {
@@ -9,7 +10,13 @@ export default {
         },
         question() {
             return this.$store.state.question
-        }
+        },
+        // reset() {
+        //     return this.$store.getters.reset
+        // },
+        // doneTodosCount () {
+        //     return this.$store.getters.doneTodosCount
+        // }
     },
     methods: {
         reset() {
@@ -29,7 +36,8 @@ export default {
             this.stats.error++                
         },
         onStart() {    
-            this.reset()        
+            // this.reset()     
+            this.$store.getters.reset   
             this.$router.push('/question')
         },
         onRepeat() {
@@ -49,9 +57,9 @@ export default {
             }
         },
         onNextQuestion() {
-            this.$store.state.question++
+            // this.$store.state.question++
             // return this.$store.getters.computedQuestion
-
+            this.$store.commit('question');
             this.onNext()
         }
     }
