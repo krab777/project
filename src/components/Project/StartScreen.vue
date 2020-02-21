@@ -1,12 +1,13 @@
 <template>
     <div id="start" class="alert alert-secondary">
-		<h2>{{ start }}</h2>
+        <slot name="title"></slot>
+		<!-- <h2>{{ start }}</h2> -->
         <h4>{{ description }}</h4>
-
+        
 		<b-button class="btn btn-success" @click="$emit('start')">{{ start }}</b-button>
 
         <br>
-        <p>{{ descSmall }}</p>
+        <p v-colored:color.font="'grey'">{{ descSmall }}</p>
     </div>
 </template>
 

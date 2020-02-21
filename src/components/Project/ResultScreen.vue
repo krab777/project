@@ -1,6 +1,6 @@
 <template>
     <div id="result" class="alert alert-secondary">
-        <h2>Retults</h2>
+        <h2 v-fontSize>Retults</h2>
         <div>
             <h3>Your correct answers is: {{ stats.success }}</h3>
             <br>
@@ -18,6 +18,13 @@
                 type: Object,
                 required: true
             }
+        },
+        directives: {
+            fontSize: {
+                bind(el) {
+                    el.style.fontSize = '34px'              
+                }
+            }    
         }
     }
 </script>

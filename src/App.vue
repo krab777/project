@@ -21,7 +21,12 @@
                     @repeat="onRepeat"
                     @next="onNext"
                     @nextQuestion="onNextQuestion"
-                ></router-view>
+                >
+                    <h2 
+                        v-colored 
+                        slot="title"
+                    >Start</h2>
+                </router-view>
             </div> 
         </div>
         <footer class="footer fixed-bottom">
