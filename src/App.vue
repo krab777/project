@@ -5,26 +5,23 @@
                     <b-nav-item href="/"><h3>This is my project</h3></b-nav-item>        
                 </b-navbar-nav>
             </b-navbar>
-        <div class="container">
-            
+        <div class="container">            
             <div class="main">            
-                <h2>Question number: {{ question }} of {{ questMax }} </h2>
                 <router-view
                     :stats="stats"
-                    @success="onQuestionSuccess"
-                    @error="onQuestionError"              
                     :settings="questions[question]"
                     :type="message.type"
                     :text="message.text"
+                    :question="question"
+                    :questMax="questMax"
+                    @success="onQuestionSuccess"
+                    @error="onQuestionError"           
                     @start="onStart"
                     @prevQwestion="onPrevQwestion"
                     @repeat="onRepeat"
                     @next="onNext"
                     @nextQuestion="onNextQuestion"
                 ></router-view>
-
-                    <div>Errors: {{ stats.error }}</div>
-                    <div>Success {{ stats.success }}</div>
             </div> 
         </div>
         <footer class="footer fixed-bottom">
@@ -36,8 +33,6 @@
         </footer>       
     </div>
 </template>
-
-
 
 <script>
     import Notifier from './mixins/notifier'
@@ -63,7 +58,7 @@
                         question: "Человеческое сердце качает кровь как насос?",
                         answers: [
                             {
-                                variant: "Да, Человеческое сердце работает как кровяной насос",
+                                variant: "Да, человеческое сердце работает как кровяной насос",
                                 correct: true
                             },
                             {
@@ -316,9 +311,6 @@
                 this.$router.push('/question')
             },
             onNext() {
-                /* eslint-disable no-console */
-                    console.log('WOW');
-                    /* eslint-enable no-console */
                 if(this.question < this.questMax) {
                     this.$router.push('/question')
                 } 
@@ -335,30 +327,10 @@
 </script>
 
 <style scoped>
-/*src="./assets/css/tailwind.css"*/
     .main {
-        margin: 0 30px;
+        margin: 30px 30px;
     }
     h2 {
         margin: 30px 0
     }
-    html, body {
-      height: 100%;
-    }
-
-    #app {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    /*#app {*/
-      /*  max-width: 1200px;
-        margin: 30px auto*/
-    /*}*/
-    /*.alert {
-        text-align: center;
-    }
-    h2, .btn {
-        margin: 30px 0;
-    }*/
 </style>

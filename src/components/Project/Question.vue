@@ -1,5 +1,7 @@
 <template>
     <div id="question" class="alert alert-secondary">
+		<h2>Question number: {{ this.question }} of {{ this.questMax }} </h2>
+
 		<h2>{{ settings.question }}</h2>
 
 		<div class="buttons">
@@ -19,7 +21,21 @@
 
 <script>
 	export default {
-		props: ['settings'], 
+		// props: ['settings','question', 'questMax'], 
+		props: {
+			settings: {
+				type: Object,
+				required: true
+			},
+			question: {
+				type: Number,
+				required: true
+			},
+			questMax: {
+				type: Number,
+				required: true
+			}
+		},
 		data(){
 			return {
 			}
@@ -34,7 +50,7 @@
 					this.$emit('success')
 				} 
 				else {
-					this.$emit('error', `${this.settings.question} is NOT '${this.settings.answers[index].variant}'!`)
+					this.$emit('error', `${this.settings.question} Это НЕ '${this.settings.answers[index].variant}'!`)
 				}
 			},
 		}

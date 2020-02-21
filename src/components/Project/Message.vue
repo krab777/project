@@ -1,16 +1,25 @@
 <template>
-    <div id="message" class="alert" :class="'alert-' + type" >
+	<div id="message" class="alert" :class="'alert-' + type" >
 		<h2>{{ text }}</h2>
 		<button class="btn btn-success" @click="$emit('prevQwestion')">Repeat</button>
 		<router-link exact active-class="font-bold" class="btn btn-success" to="/result">Result</router-link>
 		<button class="btn btn-success" @click="$emit('nextQuestion')">Next level</button>
-    </div>
+	</div>
 </template>
 
 <script>
-    export default {
-        props: ['type', 'text']
-    }
+	export default {
+		props: {
+			type: {
+				type: String,
+				required: true
+			},
+			text: {
+				type: String,
+				required: true
+			},
+		}
+	}
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@
 		<h2>{{ start }}</h2>
         <h4>{{ description }}</h4>
 
-		<b-button class="btn btn-success" @click="$emit('start')">Start</b-button>
+		<b-button class="btn btn-success" @click="$emit('start')">{{ start }}</b-button>
 
         <br>
         <p>{{ descSmall }}</p>
@@ -17,7 +17,7 @@
 				start: 'Start',
                 description: 'This is the simple testing single page application',
                 descSmall: 'To not loose Your progress don\'t reload the page'
-			}
+			}   
 		}
     }
 </script>

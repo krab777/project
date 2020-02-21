@@ -3,14 +3,13 @@ import StartScreen from "./components/Project/StartScreen"
 import ResultScreen from "./components/Project/ResultScreen"
 import Message from "./components/Project/Message"
 import Question from "./components/Project/Question"
-import Home from "./components/Home"
-
+import PageNotFound from "./components/PageNotFound"
 
 
 export default new VueRouter ({
 	routes: [
 		{
-            path: '', 
+            path: '/', 
             component: StartScreen
         },
         {
@@ -25,14 +24,10 @@ export default new VueRouter ({
             path: '/message', 
             component: Message
         },
-        {
-            path: '/home', 
-            component: Home
-        }
-		// {
-		// 	path: '*',
-		// 	component: component404
-		// }
+		{
+			path: '*',
+			component: PageNotFound
+		}
 	],
 	mode: 'history'
 })

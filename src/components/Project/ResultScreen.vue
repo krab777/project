@@ -6,13 +6,19 @@
             <br>
             <h3>Your wrong answers is: {{ stats.error }}</h3>
         </div>
-        <button class="btn btn-success" @click="$emit('start')">Repeat</button>
+        <button class="btn btn-success" @click="$emit('repeat')">Repeat</button>
     </div>
 </template>
 
 <script>
     export default {
-        props: ['stats']
+        // props: ['stats']
+        props: {
+            stats: {
+                type: Object,
+                required: true
+            }
+        }
     }
 </script>
 
