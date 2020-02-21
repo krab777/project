@@ -50,7 +50,7 @@
 					this.$emit('success')
 				} 
 				else {
-					this.$emit('error', `${this.settings.question} Это НЕ '${this.settings.answers[index].variant}'!`)
+					this.$emit('error', `${this.settings.question} is not '${this.settings.answers[index].variant}'!`)
 				}
 			},
 		}

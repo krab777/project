@@ -1,6 +1,6 @@
 <template>
     <div id="result" class="alert alert-secondary">
-        <h2 v-fontSize>Retults</h2>
+        <h2 v-fontSize> {{ msg | toUpperCase }} </h2>
         <div>
             <h3>Your correct answers is: {{ stats.success }}</h3>
             <br>
@@ -12,6 +12,11 @@
 
 <script>
     export default {
+        data(){
+            return {
+                msg: 'Result',
+            }
+        },   
         // props: ['stats']
         props: {
             stats: {
@@ -25,6 +30,11 @@
                     el.style.fontSize = '34px'              
                 }
             }    
+        },  
+        filters: {
+            toUpperCase(str) {
+                return str.toUpperCase()
+            }
         }
     }
 </script>

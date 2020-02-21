@@ -1,6 +1,6 @@
 <template>
 	<div id="message" class="alert" :class="'alert-' + type" >
-		<h2>{{ text }}</h2>
+		<h2>{{ text | replace }}</h2>
 		<button class="btn btn-success" @click="$emit('prevQwestion')">Repeat</button>
 		<router-link exact active-class="font-bold" class="btn btn-success" to="/result">Result</router-link>
 		<button class="btn btn-success" @click="$emit('nextQuestion')">Next level</button>
@@ -18,6 +18,11 @@
 				type: String,
 				required: true
 			},
+		},
+		filters: {
+			replace(str) {				
+				return str.replace("is not", "Это НЕ")
+			}
 		}
 	}
 </script>
